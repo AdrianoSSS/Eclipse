@@ -1,6 +1,6 @@
-package aplicacao_pacote;
-
+package aplicacao;
 import java.util.Scanner;
+//import javax.swing.JOptionPane;//
 
 public class Programa {
 	public static void main(String[] args) {
@@ -12,21 +12,20 @@ public class Programa {
 		System.out.println("Informe a quantidade : ");
 		produto.quantidade=teclado.nextDouble();
 		
-		System.out.println("Informe o preÁo individual : ");
+		System.out.println("Informe o pre√ßo individual : ");
 		produto.preco=teclado.nextDouble();
 		
-		System.out.println("confirmaÁ„o: "+produto.produto+"\nEstoque atual : \n"+produto.quantidade+"\npreÁo : \n"+produto.preco);
+		System.out.println("confirma√ß√£o: "+produto.produto+"\nEstoque atual : \n"+produto.quantidade+"\npre√ßo : \n"+produto.preco);
 		System.out.println("\nDeseja inserir mais produtos ? quantos : \n");
 		int estoque=teclado.nextInt();
 		produto.AddProduto(estoque);
-		System.out.println("\nAtualizaÁ„o: "+produto.produto+"\nEstoque atual : \n"+produto.quantidade+"\npreÁo : \n"+produto.preco);
+		System.out.println("\nAtualiza√ß√£o: "+produto.produto+"\nEstoque atual : \n"+produto.quantidade+"\npre√ßo : \n"+produto.preco);
 		
 		System.out.println("\nAtualmente, alguma venda foi realizada ? \n");
 		estoque=teclado.nextInt();
 		produto.SubProduto(estoque);
-		System.out.println("\nAtualizaÁ„o pÛs vendas: "+produto.produto+"\nEstoque atual : \n"+produto.quantidade+"\npreÁo : \n"+produto.preco);
-		
+		System.out.println("\nAtualiza√ß√£o p√≥s vendas: \n"+produto.produto+"\nEstoque atual : \n"+produto.quantidade+"\npre√ßo : \n"+produto.preco+"\nValor do estoque : \n"+produto.preco*produto.quantidade);
+	//JOptionPane.showConfirmDialog(null,"\nAtualiza√ß√£o p√≥s vendas: \n"+produto.produto+"\nEstoque atual : \n"+produto.quantidade+"\npre√ßo : \n"+produto.preco+"\nValor do estoque : \n"+produto.preco*produto.quantidade);//
 	teclado.close();
 	}
 }
-
