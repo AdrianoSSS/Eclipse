@@ -1,0 +1,13 @@
+package aplicacao;
+
+public class Cliente {
+	public String cliente;
+	public double quantidade;
+	public void  AddCliente(int cadastro) {
+		this.quantidade+= cadastro;
+	}
+	public void Subcliente(int cadastro) {
+		this.quantidade-= cadastro;
+	}
+}
+
