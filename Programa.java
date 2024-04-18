@@ -1,14 +1,10 @@
 package aplicacao;
 import java.util.Scanner;
-import javax.swing.*;
-
+import javax.swing.JOptionPane;
 public class Programa {
-
 	public static void main(String[] args) {
 	Scanner input = new Scanner(System.in);
-	
-	Produtos produto = new Produtos();
-	
+	Produto produto = new Produto();
 	System.out.println("Informe o produto que será cadastrado: ");
 	produto.nome = input.nextLine();
 	
@@ -30,8 +26,7 @@ public class Programa {
 	estoque = input.nextInt(estoque);
 	produto.SubProduto(estoque);
 	System.out.println("Atualização pós vendas: " + produto.nome+", estoque atual: "+produto.quantidade+", preço: "+ produto.preco);
-	
-	//JOptionPane.showConfirmDialog(null,"Atualização pós vendas: " + produto.nome+", estoque atual: "+produto.quantidade+", preço: "+ produto.preco);
+	JOptionPane.showConfirmDialog(null,"Atualização pós vendas: " + produto.nome+", estoque atual: "+produto.quantidade+", preço: "+ produto.preco);
 	input.close();
     
 	
