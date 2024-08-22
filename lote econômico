@@ -1,0 +1,62 @@
+package estudodirigido;
+
+import java.util.Scanner;
+
+public class lotecompras {
+
+    public static void main(String[] args) {
+        Double[] array = new Double[5];
+        int i;
+        boolean swapped;
+        for(i=0; i<5; i++) {
+        	Scanner scanner = new Scanner(System.in);
+        	System.out.print("Digite a demanda anual (D): ");
+        	double demandaAnual = scanner.nextDouble();
+        	
+        	System.out.print("Digite o custo de fazer um pedido (S): ");
+        	double custoPedido = scanner.nextDouble();
+        	
+        	System.out.print("Digite o custo de manutencao uma unidade por ano (H): ");
+        	double custoArmazenagem = scanner.nextDouble();
+        	
+        	
+        	double loteEconomico = calcularLEC(demandaAnual, custoPedido, custoArmazenagem);
+        	
+        	
+        	double custoTotal = calcularCustoTotal(demandaAnual, loteEconomico, custoPedido, custoArmazenagem);
+        	
+        	System.out.printf("O lote econômico de compras é: %.2f unidades%n", loteEconomico);
+        	System.out.printf("O custo total é: %.2f%n", custoTotal);        	
+        	array[i] = custoTotal;
+        	
+        }
+        for (i = 0; i < 5 - 1; i++) {
+        swapped = false;
+        for (int j = 0; j < 5 - 1 - i; j++) {
+            if (array[j] > array[j + 1]) {
+                // Trocar os elementos se estiverem na ordem errada
+                Double temp = array[j];
+                array[j] = array[j + 1];
+                array[j + 1] = temp;
+                swapped = true;
+            }
+        }
+        // Se não houver trocas, o array já está ordenado
+        if (!swapped) {
+            break;
+        }
+        }
+        System.out.println("menor custo: "+ array[0]);
+    }
+
+    public static double calcularLEC(double demanda, double custoPedido, double custoArmazenagem) {
+        return Math.sqrt((2 * demanda * custoPedido) / custoArmazenagem);
+    }
+    
+    public static double calcularCustoTotal(double demanda, double loteEconomico, double custoPedido, double custoArmazenagem) {
+        double custoTotalPedidos = (demanda / loteEconomico) * custoPedido;
+        double custoTotalArmazenagem = (loteEconomico / 2) * custoArmazenagem;
+        return custoTotalPedidos + custoTotalArmazenagem;
+    }
+    
+}
